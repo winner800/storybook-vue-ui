@@ -1,0 +1,82 @@
+{
+  "name": "storybook-vue-ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build-vue": "vue-cli-service build --debug-webpack",
+    "lint": "vue-cli-service lint",
+    "dev": "start-storybook -p 60190",
+    "mock": "mocker mock/index",
+    "static": "start-storybook -p 6017 -s ui-dist",
+    "dist": "live-server --port=3344 ui-dist",
+    "build-debug": "build-storybook -o ui-dist --debug-webpack",
+    "build": "build-storybook --no-dll -o ui-dist",
+    "bud": "sed -i -e 's/\\/sb_dll/sb_dll/g' storybook-static/index.html",
+    "build-storybook": "rm -rf storybook-static && build-storybook && sed -i -e 's/\\/sb_dll/sb_dll/g' storybook-static/index.html"
+  },
+  "dependencies": {
+    "@storybook/addon-docs": "^6.0.26",
+    "@storybook/addon-knobs": "^6.0.26",
+    "@storybook/addon-notes": "^5.3.21",
+    "@storybook/addon-storysource": "^6.0.26",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.13.2",
+    "live-server": "^1.2.1",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@storybook/addon-actions": "^6.0.26",
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/vue": "^6.0.26",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "axios": "^0.21.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "compression-webpack-plugin": "^6.1.0",
+    "css-loader": "^5.0.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "html-webpack-externals-plugin": "^3.8.0",
+    "less-loader": "^7.0.2",
+    "mocker-api": "^2.7.1",
+    "node-sass": "^4.14.1",
+    "qs": "^6.9.4",
+    "react-is": "^16.13.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "storybook-readme": "^5.0.8",
+    "style-loader": "^2.0.0",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^3.9.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

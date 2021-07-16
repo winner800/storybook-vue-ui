@@ -1,0 +1,45 @@
+#!/bin/bash
+echo "/**************************************/"
+echo "/*                                    */"
+echo "/*          git 自动化脚本            */"
+echo "/*                                    */"
+echo "/*       pull add commit push         */"
+echo "/*                                    */"
+echo "/**************************************/"
+
+cd build_code
+
+git status
+read -r -p "确认以上文件修改&提交? [Y/n] " input
+
+case $input in
+[yY][eE][sS] | [yY])
+  echo "开始执行 ..."
+  echo "---------------------------------"
+  git pull
+  # echo "git pull 完成"
+
+  git add .
+  # echo "git add  完成"
+
+  git commit -m "acg: $1"
+  # echo "git commit -m '$1' 完成"
+
+  git push
+  # echo "git push $1 完成"
+  cd ..
+  echo "---------------------------------"
+  echo "执行完成 ..."
+
+  ;;
+
+[nN][oO] | [nN])
+  echo "取消操作！"
+  exit 1
+  ;;
+
+*)
+  echo "Invalid input..."
+  exit 1
+  ;;
+esac
